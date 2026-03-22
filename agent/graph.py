@@ -82,8 +82,5 @@ agent = graph.compile()
 
 if __name__ == "__main__":
     user_prompt = "create a beautiful weather app using weather-api"
-
-    # result = agent.invoke({"user_prompt": "Build a colourful modern todo app in html css and js"},
-    #                       {"recursion_limit": 100})
     result = agent.invoke({"user_prompt": user_prompt})
     print(result)
