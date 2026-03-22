@@ -20,10 +20,17 @@
 
 **Forgeable AI Coder** is an advanced AI engineering project planner and agent. By utilizing a multi-agent state graph architecture, it translates simple natural language prompts into fully functional codebases automatically!
 
-It breaks down complex software requests using specialized AI roles:
-- 🗺️ **Planner Agent:** Understands your prompt and designs the overarching project strategy.
-- 🏗️ **Architect Agent:** Breaks the plan into actionable implementation steps.
-- 💻 **Coder Agent:** Iteratively writes, modifies, and saves the actual code to your local machine.
+## 🏗️ Architecture
+
+- **Planner Agent** – Analyzes your request and generates a detailed project plan.
+- **Architect Agent** – Breaks down the plan into specific engineering tasks with explicit context for each file.
+- **Coder Agent** – Implements each task, writes directly into files, and uses available tools like a real developer.
+
+**Coder Agent Architecture**
+
+<div align="center">
+  <img src="assets/architecture_diagram.png" alt="Coder Agent Architecture" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px;">
+</div>
 
 ---
 
