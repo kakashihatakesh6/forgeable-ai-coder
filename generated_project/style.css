@@ -1,0 +1,178 @@
+/* style.css – Calculator UI styling */
+
+/* ------------------------------------------------------------
+   Root variables – centralize colors, fonts, and spacing
+   ------------------------------------------------------------ */
+:root {
+    /* Primary palette */
+    --color-primary: #2c3e50;          /* dark slate for main UI */
+    --color-bg-body: #f5f7fa;          /* subtle off‑white background */
+    --color-bg-calculator: #ffffff;   /* white calculator panel */
+    --color-bg-display: #eaeff5;      /* light gray for the display */
+    --color-operator: #ff9500;        /* orange for operators */
+    --color-equals: #34c759;          /* green for equals */
+    --color-clear: #ff3b30;           /* red for clear */
+    --color-btn-bg: #f0f0f0;          /* default button background */
+    --color-btn-text: #333333;        /* default button text */
+
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-size-display: 2.2rem;
+    --font-size-btn: 1.4rem;
+
+    /* Spacing & sizing */
+    --spacing: 0.6rem;
+    --calc-width: 340px;               /* fixed width for larger screens */
+    --calc-radius: 12px;
+    --calc-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------------------------------------------------
+   Global body – centre the calculator
+   ------------------------------------------------------------ */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-body);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------
+   Calculator container
+   ------------------------------------------------------------ */
+.calculator {
+    width: var(--calc-width);
+    max-width: 95%;               /* keep it responsive on very small screens */
+    background: var(--color-bg-calculator);
+    border-radius: var(--calc-radius);
+    box-shadow: var(--calc-shadow);
+    overflow: hidden;            /* clip inner radius corners */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------------------------------------------------------
+   Display area – large, right‑aligned text
+   ------------------------------------------------------------ */
+.display {
+    background: var(--color-bg-display);
+    padding: calc(var(--spacing) * 1.5);
+    font-size: var(--font-size-display);
+    text-align: right;
+    color: var(--color-primary);
+    box-sizing: border-box;
+    min-height: 3rem;            /* give it a decent height even when empty */
+}
+
+/* ------------------------------------------------------------
+   Buttons grid – 4 columns with gap, responsive fallback
+   ------------------------------------------------------------ */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing);
+    padding: var(--spacing);
+    background: var(--color-bg-calculator);
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------
+   Base button style
+   ------------------------------------------------------------ */
+.btn {
+    background: var(--color-btn-bg);
+    color: var(--color-btn-text);
+    border: none;
+    border-radius: 6px;
+    font-size: var(--font-size-btn);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    padding: var(--spacing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn:hover {
+    background: #e0e0e0;
+}
+
+/* ------------------------------------------------------------
+   Specific button variants
+   ------------------------------------------------------------ */
+.operator {
+    background: var(--color-operator);
+    color: #ffffff;
+}
+
+.operator:hover {
+    background: #ffb84d;
+}
+
+.equals {
+    background: var(--color-equals);
+    color: #ffffff;
+}
+
+.equals:hover {
+    background: #66d58a;
+}
+
+.clear {
+    background: var(--color-clear);
+    color: #ffffff;
+}
+
+.clear:hover {
+    background: #ff6b66;
+}
+
+/* ------------------------------------------------------------
+   Responsive adjustments – narrow screens
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+    .calculator {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;   /* full‑bleed on very small devices */
+    }
+
+    .buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .display {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: calc(var(--spacing) * 0.8);
+    }
+}
+
+/* ------------------------------------------------------------
+   Optional – make the calculator a little larger on tablets
+   ------------------------------------------------------------ */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .calculator {
+        --calc-width: 380px;
+    }
+    .display {
+        font-size: 2.4rem;
+    }
+    .btn {
+        font-size: 1.6rem;
+    }
+}

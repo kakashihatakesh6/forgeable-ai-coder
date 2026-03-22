@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+env/
+venv/
+
+# Environment Variables
+.env
+.env.*
+
+# IDEs and Editors
+.idea/
+.vscode/
+.jbeval/
+*.swp
+*.swo
+
+# Project specific
+# generated_project/
